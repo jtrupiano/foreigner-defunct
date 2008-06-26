@@ -1,0 +1,54 @@
+= rails-association-verifier
+
+* http://github.com/jtrupiano/rails-association-verifier/tree/master
+
+== DESCRIPTION:
+This ruby executable (verify.rb) will inspect a rails project's models
+and verify that their associations have a one-to-one correlation with
+the foreign key constraints set up in the MySQL database. 
+
+== Usage:
+ruby verify.rb /full/path/to/rails/project/root [RAILS_ENV=env]
+
+== INCOMPLETE ==
+* Currently only inspects belongs_to relationships (has_one, has_many, and habtm support should be added)
+* Doesn't yet display foreign key constraints that exist in the database but are missing in A/R models
+* No support for models defined in plugins, gems, etc.
+
+
+== SYNOPSIS:
+
+  FIX (code sample of usage)
+
+== REQUIREMENTS:
+
+* a rails app that uses MySQL
+
+== INSTALL:
+
+* None required
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 FIX
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
