@@ -3,18 +3,17 @@
 * http://github.com/jtrupiano/rails-association-verifier/tree/master
 
 == DESCRIPTION:
-This ruby executable (verify.rb) will inspect a rails project's models
-and verify that their associations have a one-to-one correlation with
-the foreign key constraints set up in the MySQL database. 
+This gem installs a ruby executable (verify) that will inspect a rails 
+project's models and verify that their associations have a one-to-one 
+correlation with the foreign key constraints set up in the MySQL database. 
 
 == Usage:
-ruby verify.rb /full/path/to/rails/project/root [RAILS_ENV=env]
+verify [/full/path/to/rails/project/root] [RAILS_ENV=env]
 
 == INCOMPLETE ==
 * Currently only inspects belongs_to and habtm relationships (has_one and has_many should be added)
 * It likely misses any non-standard naming conventions (I almost never do this, so I don't have code handy to test with)
 * No support for models defined in plugins, gems, etc.
-
 
 == SYNOPSIS:
 
@@ -24,9 +23,9 @@ ruby verify.rb /full/path/to/rails/project/root [RAILS_ENV=env]
 
 * a rails app that uses MySQL
 
-== INSTALL:
-
-* None required
+== INSTALL:
+rake gem
+sudo gem install pkg/rails-association-verifier-0.1.0.gem
 
 == LICENSE:
 
