@@ -1,8 +1,14 @@
 #!/usr/bin/env ruby
+
 rails_root = ARGV[0]
 
-require "#{rails_root}/config/environment"
-require 'foreign_keys'
+if rails_root
+  require "#{rails_root}/config/environment"
+else
+  require 'config/environment'
+end
+
+require 'rails-association-verifier/foreign_keys'
 
 path = File.join(RAILS_ROOT, "app", "models")
 #puts "path: #{path}"
