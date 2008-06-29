@@ -8,7 +8,11 @@ project's models and verify that their associations have a one-to-one
 correlation with the foreign key constraints set up in the MySQL database. 
 
 == Usage:
-foreigner [/full/path/to/rails/project/root] [RAILS_ENV=env]
+foreigner [/full/path/to/rails/project/root]
+
+Note: to run on a particular environment, invoke the executable as such:
+
+$> export RAILS_ENV=staging && foreigner /full/path/to/rails/project/root
 
 == INCOMPLETE ==
 * Currently only inspects belongs_to and habtm relationships (has_one and has_many should be added)
