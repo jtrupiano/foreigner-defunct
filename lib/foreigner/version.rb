@@ -1,4 +1,4 @@
-module RailsAssociationVerifier
+module Foreigner
   module Version #:nodoc:
     # A method for comparing versions of required modules. It expects two
     # arrays of integers as parameters, the first being the minimum version

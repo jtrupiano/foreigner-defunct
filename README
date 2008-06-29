@@ -1,19 +1,20 @@
-= rails-association-verifier
+= foreigner
 
-* http://github.com/jtrupiano/rails-association-verifier/tree/master
+* http://github.com/jtrupiano/foreigner/tree/master
 
 == DESCRIPTION:
-This gem installs a ruby executable (verify) that will inspect a rails 
+This gem installs a ruby executable (foreigner) that will inspect a rails 
 project's models and verify that their associations have a one-to-one 
 correlation with the foreign key constraints set up in the MySQL database. 
 
 == Usage:
-verify [/full/path/to/rails/project/root] [RAILS_ENV=env]
+foreigner [/full/path/to/rails/project/root] [RAILS_ENV=env]
 
 == INCOMPLETE ==
 * Currently only inspects belongs_to and habtm relationships (has_one and has_many should be added)
 * It likely misses any non-standard naming conventions (I almost never do this, so I don't have code handy to test with)
 * No support for models defined in plugins, gems, etc.
+* Gem is not currently hosted anywhere (RubyForge?)
 
 == SYNOPSIS:
 
@@ -25,7 +26,7 @@ verify [/full/path/to/rails/project/root] [RAILS_ENV=env]
 
 == INSTALL:
 rake gem
-sudo gem install pkg/rails-association-verifier-0.1.0.gem
+sudo gem install pkg/foreigner-0.1.0.gem
 
 == LICENSE:
 

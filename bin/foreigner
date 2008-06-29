@@ -6,7 +6,7 @@ env_path   = rails_root ? "#{rails_root}/config/environment" : 'config/environme
 require env_path
 
 puts "Verifying..."
-require 'rails-association-verifier/verifier'
+require 'foreigner/verifier'
 v = Verifier.new(RAILS_ROOT)
 v.verify!
 

@@ -1,4 +1,4 @@
-require 'rails-association-verifier/foreign_key'
+require 'foreigner/foreign_key'
 
 class ForeignKeys
   
