@@ -1,5 +1,5 @@
 require 'foreigner/foreign_keys'
-
+require 'foreigner/reporter'
 
 class Verifier
 
@@ -15,8 +15,7 @@ class Verifier
 
     fks = ForeignKeys.retrieve(ActiveRecord::Base.configurations[RAILS_ENV])
 
-    puts "\n#################################"
-    puts "A/R associations that exist but do not have a corresponding foreign key"
+    missing_fks = {:belongs_to => [], :has_and_belongs_to_many => []}
 
     Dir.glob(File.join(path, "**", "*.rb")).each do |f|
       #puts "file: #{f}"
@@ -34,37 +33,33 @@ class Verifier
       #puts "looking for #{table_name}"
 
       model.reflections.each do |key, value|
-        if value.macro == :belongs_to
+        case value.macro
+        when :belongs_to then
           #puts "   belongs_to : #{key}"
           primary_class_table = value.class_name.tableize
           foreign_key_field = value.respond_to?(:foreign_key) ? value.foreign_key : value.name.to_s + '_id'
 
           tmp_fk = ForeignKey.new(table_name, foreign_key_field, primary_class_table, "id")
-
-          unless fks.reject! {|fk| fk == tmp_fk}
-            puts "belongs_to: #{tmp_fk.to_s}"
-          end
-        elsif value.macro == :has_and_belongs_to_many
+        when :has_and_belongs_to_many then
           pk_table = value.class_name.tableize
           pk_field = "id"
           fk_table = value.options[:join_table] # the join table
           fk_field = value.class_name.foreign_key
           
           tmp_fk = ForeignKey.new(fk_table, fk_field, pk_table, pk_field)
-
-          unless fks.reject! {|fk| fk == tmp_fk}
-            puts "habtm: #{tmp_fk.to_s}"
-          end
+        else
+          next
+        end
+        
+        # check to see if our database has the foriegn key
+        unless fks.reject! {|fk| fk == tmp_fk}
+          missing_fks[value.macro] << tmp_fk
         end
       end
       
     end
 
-    puts "\n\n#################################"
-    puts "Foreign keys that exist in the database but do not have an A/R association"
-    fks.each do |fk|
-      puts "#{fk.table}.#{fk.column} => #{fk.referenced_table}.#{fk.referenced_column}"
-    end
+    Reporter.report(missing_fks, fks)
 
   end
 
