@@ -12,13 +12,12 @@ foreigner [/full/path/to/rails/project/root]
 
 Note: to run on a particular environment, invoke the executable as such:
 
-$> export RAILS_ENV=staging && foreigner /full/path/to/rails/project/root
+$> RAILS_ENV=staging foreigner /full/path/to/rails/project/root
 
 == INCOMPLETE ==
 * Currently only inspects belongs_to and habtm relationships (has_one and has_many should be added)
 * It likely misses any non-standard naming conventions (I almost never do this, so I don't have code handy to test with)
 * No support for models defined in plugins, gems, etc.
-* Gem is not currently hosted anywhere (RubyForge?)
 
 == SYNOPSIS:
 
@@ -28,7 +27,8 @@ $> export RAILS_ENV=staging && foreigner /full/path/to/rails/project/root
 
 * a rails app that uses MySQL
 
-== INSTALL:
+== INSTALL:
+
 rake gem
 sudo gem install pkg/foreigner-0.1.0.gem
 

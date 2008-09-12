@@ -1,0 +1,4 @@
+=== v0.1.0
+2008-06-29
+
+* Initial Release: foreigner executable will inspect your rails app and mysql database and confirm whether or not your FKC are in line with the relationships defined in your models (has_many, belongs_to, habtm, has_one)

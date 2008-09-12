@@ -1,0 +1,12 @@
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/foreigner
+foreigner.gemspec
+lib/foreigner.rb
+lib/foreigner/foreign_key.rb
+lib/foreigner/foreign_keys.rb
+lib/foreigner/reporter.rb
+lib/foreigner/verifier.rb
+lib/foreigner/version.rb
